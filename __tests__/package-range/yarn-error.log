@@ -1,0 +1,49 @@
+Arguments: 
+  /Users/tiagogouvea/.nvm/versions/node/v14.16.1/bin/node /usr/local/Cellar/yarn/1.22.15/libexec/bin/yarn.js check --integrity
+
+PATH: 
+  /var/folders/tr/zt07tvbd6rddc41ptghf4jsr0000gn/T/yarn--1635003047990-0.8872316954784296:/Users/tiagogouvea/www/package-locks-checks/node_modules/.bin:/Users/tiagogouvea/.config/yarn/link/node_modules/.bin:/Users/tiagogouvea/.nvm/versions/node/v14.16.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/Users/tiagogouvea/.nvm/versions/node/v14.16.1/lib/node_modules/npm/bin/node-gyp-bin:/Users/tiagogouvea/.nvm/versions/node/v14.16.1/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/opt/icu4c/sbin:/usr/local/opt/icu4c/bin:/Users/tiagogouvea/Scripts/google-cloud-sdk/bin:/Users/tiagogouvea/.yarn/bin:/Users/tiagogouvea/.config/yarn/global/node_modules/.bin:/usr/local/bin/react-native:/Users/tiagogouvea/.composer/vendor/bin:/usr/local/mysql-5.6.39-macos10.13-x86_64/bin/:/usr/local/php5/bin:/Users/tiagogouvea/.nvm/versions/node/v10.15.13/bin:/usr/local/opt/openssl/bin:/Users/tiagogouvea/.nvm/versions/node/v14.16.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tiagogouvea/Library/Android/sdk/emulator/emulator:/Users/tiagogouvea/Library/Android/sdk/tools:/Users/tiagogouvea/Library/Android/sdk/tools/bin:/Users/tiagogouvea/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  14.16.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  TypeError: Cannot read property 'commander@^8.2.0' of undefined
+      at /usr/local/Cellar/yarn/1.22.15/libexec/lib/cli.js:47869:25
+      at Array.filter (<anonymous>)
+      at InstallationIntegrityChecker.<anonymous> (/usr/local/Cellar/yarn/1.22.15/libexec/lib/cli.js:47868:38)
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.15/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.15/libexec/lib/cli.js:328:14
+      at new Promise (<anonymous>)
+      at new F (/usr/local/Cellar/yarn/1.22.15/libexec/lib/cli.js:5301:28)
+      at InstallationIntegrityChecker.<anonymous> (/usr/local/Cellar/yarn/1.22.15/libexec/lib/cli.js:307:12)
+      at InstallationIntegrityChecker.check (/usr/local/Cellar/yarn/1.22.15/libexec/lib/cli.js:47917:21)
+
+npm manifest: 
+  {
+    "dependencies": {
+      "commander": "^8.2.0",
+      "james": "x"
+    },
+    "devDependencies": {
+      "child_process": "1.0.2",
+      "graphql": "^3.5.0",
+      "jest": "*",
+      "rest": "~1.2.0",
+      "restMore": "1.2.x",
+      "commander": ""
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

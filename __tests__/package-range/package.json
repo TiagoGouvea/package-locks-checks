@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "commander": "^8.2.0",
+    "james": "x"
+  },
+  "devDependencies": {
+    "child_process": "1.0.2",
+    "graphql": "^3.5.0",
+    "jest": "*",
+    "rest": "~1.2.0",
+    "restMore": "1.2.x",
+    "commander": ""
+  }
+}

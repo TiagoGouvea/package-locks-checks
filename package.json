@@ -1,0 +1,36 @@
+{
+  "name": "package-locks-checks",
+  "version": "0.0.5",
+  "main": "index.js",
+  "description": "Validate packages inconsistencies to protect your production environments from unexpected dependencies versions",
+  "keywords": [
+    "yarn",
+    "check",
+    "dependencies",
+    "yarn.lock",
+    "package-lock.json",
+    "version-range"
+  ],
+  "repository": "https://github.com/TiagoGouvea/package-locks-checks",
+  "author": "TiagoGouvea - https://github.com/TiagoGouvea",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --forceExit --detectOpenHandles",
+    "package-locks-checks" : "index.js"
+  },
+  "bin": {
+    "package-locks-checks": "index.js"
+  },
+  "preferGlobal": true,
+  "jest": {
+    "verbose": true
+  },
+  "dependencies": {
+    "commander": "8.2.0",
+    "semver": "7.3.5"
+  },
+  "devDependencies": {
+    "child_process": "1.0.2",
+    "jest": "27.2.5"
+  }
+}
