@@ -32,10 +32,8 @@ function checkUnmatchedYarnLock(options) {
     return new Promise((resolve, reject) => {
         try {
             if (options.debug) console.log("basePath", options.basePath);
-
             let out = '';
             let outError = '';
-
             const close = (code) => {
                 if (options.debug) console.log(">> close - code: ", code, " - out: ", out, " - outError: ", outError);
                 if (out.includes("Folder in sync")) {
@@ -50,8 +48,8 @@ function checkUnmatchedYarnLock(options) {
                     // console.log("Couldn't find an integrity file - node_modules folder could be not present")
                     resolve(1);
                 } else {
-                    console.log(">> WHAT ELSE?");
-                    console.log(">> code: ", code, " - out: ", out, " - outError: ", outError);
+                    console.log("Unexpected yarn check integrity error:");
+                    console.log(">> Code: ", code, " - Error message: ", outError, " Additional yarn message: ", out );
                     resolve(1);
                 }
             }
