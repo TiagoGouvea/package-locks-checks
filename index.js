@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const {program} = require('commander');
+const {checkMultipleLockFiles, checkUnmatchedYarnLockFile, checkRange} = require("./checkers");
 
 program
     .version(require('./package.json').version)

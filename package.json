@@ -1,6 +1,6 @@
 {
   "name": "package-locks-checks",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "index.js",
   "description": "Validate packages inconsistencies to protect your production environments from unexpected dependencies versions",
   "keywords": [

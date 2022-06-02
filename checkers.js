@@ -1,6 +1,5 @@
-import fs from "fs";
-import {spawn} from "child_process";
-import semver from "semver";
+const fs = require("fs");
+const semver = require("semver");
 
 function getPackageContent(packageFile) {
     if (fs.existsSync(packageFile)) {
@@ -9,7 +8,7 @@ function getPackageContent(packageFile) {
     }
 }
 
-export function checkMultipleLockFiles(options) {
+function checkMultipleLockFiles(options) {
     const lockFiles = [fs.existsSync(options.basePath + 'package-lock.json'), fs.existsSync(options.basePath + 'yarn.lock'), fs.existsSync(options.basePath + 'pnpm-lock.yaml')];
     const multipleExisting = lockFiles.filter(l => l == true).length > 1;
     if (options.debug) console.log("bothExists", multipleExisting);
@@ -24,7 +23,7 @@ export function checkMultipleLockFiles(options) {
     return 0;
 }
 
-export function checkUnmatchedYarnLockFile(options) {
+function checkUnmatchedYarnLockFile(options) {
     return new Promise((resolve, reject) => {
         try {
             if (options.debug) console.log("basePath", options.basePath);
@@ -84,7 +83,7 @@ export function checkUnmatchedYarnLockFile(options) {
     })
 }
 
-export function checkRange(options, content) {
+function checkRange(options, content) {
     if (!content)
         content = getPackageContent(options.packageFile);
     // const find = "*";
@@ -124,3 +123,5 @@ export function checkRange(options, content) {
     // console.log(`Package is OK`);
     return 0; // ok
 }
+
+module.exports = {checkRange, checkUnmatchedYarnLockFile, checkMultipleLockFiles}
