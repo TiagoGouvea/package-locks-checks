@@ -1,13 +1,9 @@
 #!/usr/bin/env node
-
 'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const {program} = require('commander');
 const semver = require("semver");
-const {spawn} = require("child_process");
-const checkPackage = require('@pnpm/check-package').default;
 
 function getPackageContent(packageFile) {
     if (fs.existsSync(packageFile)) {
