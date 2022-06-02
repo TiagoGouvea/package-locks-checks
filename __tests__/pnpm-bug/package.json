@@ -1,0 +1,114 @@
+{
+  "name": "breakout-app",
+  "productName": "breakout-app",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": ".webpack/main",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "test:prettier": "prettier-check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "test:lint": "eslint . --ext ts --ext tsx --ext js",
+    "test:typescript": "tsc --noEmit",
+    "test:package-locks": "package-locks-checks true",
+    "checks": "yarn test:package-locks"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "breakout_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        [
+          "@electron-forge/plugin-webpack",
+          {
+            "mainConfig": "./webpack.main.config.js",
+            "devContentSecurityPolicy": "default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./public/index.html",
+                  "js": "./src/index.tsx",
+                  "name": "main_window",
+                  "preload": {
+                    "js": "./electron/bridge.ts"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "7.18.2",
+    "@babel/plugin-transform-runtime": "7.18.2",
+    "@babel/preset-env": "7.18.2",
+    "@babel/preset-react": "7.17.12",
+    "@babel/preset-typescript": "7.17.12",
+    "@electron-forge/cli": "6.0.0-beta.63",
+    "@electron-forge/maker-deb": "6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.63",
+    "@electron-forge/maker-zip": "6.0.0-beta.63",
+    "@electron-forge/plugin-webpack": "6.0.0-beta.63",
+    "@types/dotenv": "8.2.0",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.5",
+    "@types/styled-components": "5.1.25",
+    "@typescript-eslint/eslint-plugin": "5.0.0",
+    "@typescript-eslint/parser": "5.0.0",
+    "@vercel/webpack-asset-relocator-loader": "1.7.0",
+    "babel-loader": "8.2.5",
+    "css-loader": "6.0.0",
+    "electron": "19.0.1",
+    "eslint": "8.0.1",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.25.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "fork-ts-checker-webpack-plugin": "6.0.1",
+    "node-loader": "2.0.0",
+    "only-allow": "1.1.0",
+    "prettier": "2.6.2",
+    "prettier-check": "2.0.0",
+    "style-loader": "3.0.0",
+    "ts-loader": "9.2.2",
+    "typescript": "4.5.4"
+  },
+  "dependencies": {
+    "dotenv": "16.0.1",
+    "electron-squirrel-startup": "1.0.0",
+    "package-locks-checks": "0.0.6",
+    "react": "18.1.0",
+    "react-desktop": "0.3.9",
+    "react-dom": "18.1.0",
+    "rollbar": "2.25.0",
+    "styled-components": "5.3.5"
+  }
+}

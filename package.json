@@ -1,6 +1,6 @@
 {
   "name": "package-locks-checks",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "index.js",
   "description": "Validate packages inconsistencies to protect your production environments from unexpected dependencies versions",
   "keywords": [
@@ -16,7 +16,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --forceExit --detectOpenHandles",
-    "package-locks-checks" : "index.js"
+    "package-locks-checks": "index.js"
   },
   "bin": {
     "package-locks-checks": "index.js"
@@ -26,6 +26,8 @@
     "verbose": true
   },
   "dependencies": {
+    "@pnpm/check-package": "^3.0.1",
+    "@pnpm/npm-resolver": "^13.0.2",
     "commander": "8.2.0",
     "semver": "7.3.5"
   },

@@ -4,8 +4,6 @@
 
 [![Package Version](https://img.shields.io/npm/v/package-locks-checks.svg?style=flat-square)](https://www.npmjs.com/package/package-locks-checks)
 [![Downloads Status](https://img.shields.io/npm/dm/package-locks-checks.svg?style=flat-square)](https://npm-stat.com/charts.html?package=package-locks-checks&from=2021-10-10)
-[![Build Status: Linux](https://img.shields.io/travis/luftywiranda13/package-locks-checks/master.svg?style=flat-square)](https://travis-ci.org/package-locks-checks/package-locks-checks)
-[![Coverage Status](https://img.shields.io/codecov/c/github/luftywiranda13/package-locks-checks/master.svg?style=flat-square)](https://codecov.io/gh/tiagogouvea/package-locks-checks)
 
 Prevent common situations (mainly when working on a dev team):
 - Dev sometimes includes open wide version ranges on package.json, that later will be installed a most recent on your build/production environment and break your project
@@ -60,12 +58,13 @@ package-locks-checks --basePath './api'
 ## Options:
 
 ```text
-Param                                     Default  Description
--p, --basePath <path>                              Base path to load package files
--f, --packageFile <filename>                       Full path to package.json file
--r, --allowRange <boolean>                false    Allow to have a range (ex: 1 or 1.x or ^1.0.4) other than specific version (ex: 1.0 or 1.0.4) on package dependencies
--mlf, --allowMultipleLockFiles <boolean>  false    Allow to have package-lock.json and yarn.lock at same time', false)
--uyl, --allowUnmatchedYarnLock <boolean>  false    Allow to have different hashed versions on package.json and yarn.lock file', false)
+Param                                     Default        Description
+-pm, --packageManager <npm,yarn,pnpm>     yarn           Select packageManager
+-p, --basePath <path>                     ./             Base path to load package files
+-f, --packageFile <filename>              ./package.json Full path to package.json file
+-r, --allowRange <boolean>                false          Allow to have a range (ex: 1 or 1.x or ^1.0.4) other than specific version (ex: 1.0 or 1.0.4) on package dependencies
+-mlf, --allowMultipleLockFiles <boolean>  false          Allow to have package-lock.json and yarn.lock at same time', false)
+-uyl, --allowUnmatchedYarnLock <boolean>  false          Allow to have different hashed versions on package.json and yarn.lock file', false)
 ```
 
 
@@ -77,14 +76,15 @@ Param                                     Default  Description
 2 = Folder or package.json was not found
 ```
 
-
 ## To be implemented
 
-- Detect "prefered" package manager, to validate npm issues as well
+- Detect "preferred" package manager, to validate npm issues as well
 - Validate package-lock.json with package.lock versions
 - Use [hasLockfile](https://github.com/luftywiranda13/package-locks-checks) to validate multiple lock files
 - Auto publish package on npm when merging do main
 - Update exit codes with 2 other than 1 when folder missing
+- Check for yarn.lock before integrity yarn check, pnpm-lock.yaml with pnpm, and so
+
 
 ## Related links
 
