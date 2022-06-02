@@ -26,7 +26,6 @@
     "verbose": true
   },
   "dependencies": {
-    "@pnpm/check-package": "^3.0.1",
     "@pnpm/npm-resolver": "^13.0.2",
     "commander": "8.2.0",
     "semver": "7.3.5"
